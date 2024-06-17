@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keydown</title>
+</head>
+<body>
+    
+   <!--div donde se creará un nuevo elemento-->
+    <div id="contenedor">
+
+         <!--Crea un div con el id “key”, de 200px de ancho y alto y de color blanco y borde negro.-->
+        <div id="key" style="height: 200px; width: 200px; color: white; border: solid black 1px;" >
+        </div>
+
+    </div>
+
+    <script>
+        /*Crea una página junto a un script que guarde dentro de una variable global 
+        un color dependiendo de la letra del teclado presionada. a = rosado. s = naranjo.
+        d = celeste.
+        
+        Al presionar las teclas a, s o d, se deberá cambiar el color
+        del div “key” a rosado, naranjo o celeste respectivamente.*/
+
+        
+        /* Al presionar las teclas q, w o e  se deberá crear un div nuevo de las mismas dimensiones antes mencionadas  
+        con los colores morado, gris y café respectivamente. */
+
+        function agregarElemento(nuevoColor) {
+            contenedor = document.getElementById('contenedor')
+            nuevoElemento = document.createElement("div")
+            nuevoElemento.style.height = "200px";
+            nuevoElemento.style.width = "200px";
+            nuevoElemento.style.border = "solid black 1px"
+            nuevoElemento.style.backgroundColor = nuevoColor;
+            contenedor.appendChild(nuevoElemento);
+        }
+
+        function cambiaColor(nuevoColor) {
+            key = document.getElementById('key');
+            key.style.backgroundColor = nuevoColor;
+        }
+    
+       document.addEventListener("keydown", function (event) { 
+        if (event.key === 'a'|| event.key === 'A') {
+            cambiaColor ("pink")}
+             else if (event.key === 's'|| event.key === 'S') { 
+            cambiaColor ("#F29877")} 
+            else if (event.key === 'd'|| event.key === 'D') {
+            cambiaColor ("#5FCDD9")}
+            else if (event.key === 'q'|| event.key === 'Q') {
+            agregarElemento ("#6C568C")}
+            else if (event.key === 'w'|| event.key === 'W') {
+            agregarElemento ("#BABFB8")}
+            else if (event.key === 'e'|| event.key === 'E') {
+            agregarElemento ("#A66B49")}
+        })
+
+    </script>
+</body>
+</html>
